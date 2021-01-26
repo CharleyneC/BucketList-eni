@@ -21,4 +21,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
         public function accueil(){
             return $this->render('main/aboutUs.html.twig');
         }
+
+        /**
+         * @Route ("/main/legale-stuff", name="legal-stuff")
+         */
+        public function legalStuff(){
+            return $this->render('main/legal-stuff.html.twig');
+        }
     }

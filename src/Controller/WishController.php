@@ -6,17 +6,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class WishController extends AbstractController{
     /**
-     * @Route("/main/liste", name = "liste")
+     * @Route("/wishes/liste", name = "liste")
      */
     public function liste()
     {
-        return $this->render('main/liste.html.twig');
+        return $this->render('wishes/liste.html.twig');
     }
 
     /**
-     * @Route("/main/detail/{id}", name = "detail")
+     * @Route("/wishes/detail/{id}", name = "detail")
      */
-    public function detail($id =1) : Response {
-        return $this->render('main/detail.html.twig', [$id]);
+    public function detail($id = 1) : Response{
+        return $this->render('wishes/detail.html.twig');
     }
 }
