@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -15,7 +16,7 @@ class WishController extends AbstractController{
     /**
      * @Route("/main/detail/{id}", name = "detail")
      */
-    public function detail($id =1){
+    public function detail($id =1) : Response {
         return $this->render('main/detail.html.twig', [$id]);
     }
 }

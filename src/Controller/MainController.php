@@ -16,9 +16,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
         }
 
         /**
-         * @Route("/main/accueil", name = "aboutUs")
+         * @Route("/main/aboutUs", name = "aboutUs")
          */
-        public function Accueil(){
+        public function accueil(){
             return $this->render('main/aboutUs.html.twig');
         }
     }
