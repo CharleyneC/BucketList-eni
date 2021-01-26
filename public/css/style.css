@@ -5,6 +5,22 @@ html {
     font-family: Comfortaa;
 }
 
-img{
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
+img {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 30px;
+}
+
+h1 {
+    font-weight: bold;
+    margin-top: 0;
 }

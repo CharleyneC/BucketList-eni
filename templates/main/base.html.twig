@@ -16,8 +16,11 @@
 <body>
 <header>
     {% block header %}
-    <img src="{{ asset('image/logo.png') }}">
-        <h1>Bucket-List</h1>
+<div class="header-container">
+    <h1>Bucket-List</h1>
+    <img src="{{ asset('image/logo.svg') }}">
+</div>
+
     {% endblock %}
 </header>
 
@@ -26,7 +29,9 @@
 
 
 <footer>
-    {% block footer %} {% endblock %}
+    {% block footer %}
+        <p> &copy; Bucket-List {{ "now"|date("Y")}}</p>
+    {% endblock %}
 </footer>
 </body>
 </html>

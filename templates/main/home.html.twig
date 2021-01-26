@@ -3,12 +3,9 @@
 {% block title %}{{ parent() }} - Home {% endblock %}
 
 {% block body %}
-    <h1>Coucou, ca marche!!</h1>
+    <p>Coucou, ca marche!!</p>
 
     <a href="{{ path('accueil') }}"> Vers la page d'accueil </a>
 
 {% endblock %}
 
-{% block footer %}
-<p> @Bucket-List {{ "now"|date("m/d/Y", "Europe/Paris")}}</p>
-{% endblock %}
