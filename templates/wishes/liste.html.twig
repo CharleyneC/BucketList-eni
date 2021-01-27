@@ -1,5 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Mouais pas ouf</h1>
+
+    {% for souhait in wish %}
+        <article>
+            <a href="{{ path ('detail', {id:souhait.id}) }}">{{souhait.titre}}</a>
+        </article>
+        {% else %}
+        <p>Il n'y a pas de souhait!!</p>
+    {% endfor %}
 {% endblock %}
