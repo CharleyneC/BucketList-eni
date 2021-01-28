@@ -3,11 +3,15 @@
 {% block title %}{{ parent() }} - Home {% endblock %}
 
 {% block body %}
-    <p>Coucou, ca marche!!</p>
-    <a href="{{ path('aboutUs') }}">About Us</a>
-    <a href="{{ path ('liste')}}">Liste de souhait</a>
-    <a href="{{ path ('ajouter') }}">Ajouter un souhait</a>
-    <a href="{{ path ('legal-stuff') }}">Mentions légales</a>
+
+    <div class="choix">
+        <a href="{{ path ('liste')}}">Liste de souhait</a>
+        <a href="{{ path ('ajouter') }}">Ajouter un souhait</a>
+    </div>
+    <div class="autre">
+        <a href="{{ path('aboutUs') }}">About Us</a>
+        <a href="{{ path ('legal-stuff') }}">Mentions légales</a>
+    </div>>
 {% endblock %}
 
 

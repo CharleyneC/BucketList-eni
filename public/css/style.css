@@ -45,4 +45,12 @@ input#wish_estVisible{
 a, p, h1, h2{
     text-align: left;
 }
+div.choix, a{
+    display: block;
+    margin-bottom: 5%;
+}
+div.autre{
+    display: inline;
+    margin: 5%;
+}
 

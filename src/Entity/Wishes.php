@@ -20,18 +20,36 @@ class Wishes
 
     /**
      * @Assert\NotBlank(message="Le souhait doit avoir un titre!!");
+     * @Assert\Length(
+     *     min=5,
+     *     max=50,
+     *     minMessage="Ton titre est trop court!",
+     *     maxMessage="Oula! Ton titre est bien trop long!"
+     * )
      * @ORM\Column(type="string", length=250)
      */
     private $titre;
 
     /**
      * @Assert\NotBlank(message="Décris-moi plus en détail!!");
+     * @Assert\Length(
+     *     min=5,
+     *     max=250,
+     *     minMessage="Tu veux pas nous en dire plus? On est curieux, ton message est trop court!",
+     *     maxMessage="Oula! T'es bavard toi! Ton message est bien trop long!"
+     * )
      * @ORM\Column(type="text")
      */
     private $description;
 
     /**
      * @Assert\NotBlank(message="Anonymous? Nope, pas ici!")
+     * @Assert\Length(
+     *     min=5,
+     *     max=50,
+     *     minMessage="Ton nom est trop court!",
+     *     maxMessage="Oula! Ton nom est bien trop long!"
+     * )
      * @ORM\Column(type="string", length=50)
      */
     private $auteur;
