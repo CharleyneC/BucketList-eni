@@ -4,7 +4,21 @@
 
     <h1>Créer un nouveau souhait</h1>
         <div>
-            {{ form(wish_form) }}
+            {{ form_start(wish_form,{'novalidate' : 'novalidate'}) }}
+
+            {{ form_label(wish_form.titre) }}
+            {{ form_widget(wish_form.titre) }}
+            {{ form_errors(wish_form.titre) }}
+
+            {{ form_label(wish_form.description) }}
+            {{ form_widget(wish_form.description) }}
+            {{ form_errors(wish_form.description) }}
+
+            {{ form_label(wish_form.auteur) }}
+            {{ form_widget(wish_form.auteur) }}
+            {{ form_errors(wish_form.auteur) }}
+
+            {{ form_end(wish_form) }}
         </div>
 
 {% endblock %}
