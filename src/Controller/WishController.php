@@ -1,9 +1,11 @@
 <?php
 namespace App\Controller;
 use App\Entity\Wishes;
+use App\Form\WishType;
 use App\Repository\WishesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -50,6 +52,30 @@ class WishController extends AbstractController{
         $entityManager->flush();
 
         return new Response('Cest good!');
+    }
+
+    /**
+     * @Route ("/wishes/ajout", name="ajouter")
+     */
+    public function ajouterWish(Request $request, EntityManagerInterface $entityManager): Response {
+
+        $wish = new Wishes();
+
+        $form = $this->createForm(WishType::class, $wish);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $wish->setDateCrea(new \DateTime());
+
+            $entityManager->persist($wish);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('detail', ['id' => $wish->getId()]);
+        }
+        return $this->render('wishes/ajout.html.twig', [
+            "wish_form" => $form->createView()
+            ]);
     }
 
 }

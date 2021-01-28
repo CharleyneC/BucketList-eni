@@ -28,4 +28,5 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
         public function legalStuff(){
             return $this->render('main/legal-stuff.html.twig');
         }
+
     }

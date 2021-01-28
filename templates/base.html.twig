@@ -23,10 +23,21 @@
 
     {% endblock %}
 </header>
-
-
-{% block body %} <h1> Pas au bon endroit </h1> {% endblock %}
-
+<main>
+    {# read and display all flash messages #}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</main>
+    <div>
+        {% block body %}
+            <h1> Pas au bon endroit </h1>
+        {% endblock %}
+    </div>
 
 <footer>
     {% block footer %}
