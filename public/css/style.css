@@ -54,3 +54,21 @@ div.autre{
     margin: 5%;
 }
 
+div.flash-succes{
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 2px;
+    background-color: darkolivegreen;
+    color: #DDDDDD;
+}
+div.flash-error{
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 2px;
+    background-color: #B0413E;
+    color: black;
+}
+
+form li{
+    color: darkred;
+}

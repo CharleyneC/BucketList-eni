@@ -72,13 +72,15 @@ class WishController extends AbstractController{
             $entityManager->flush();
 
             $this->addFlash('succes', 'Excellent! Ton souhait à bien était créé! Plus qua le réaliser!');
-            /*$this->addFlash('error', 'Ya un truc qui ne va pas, le souhait ne peut pas être sauvegarder!');*/
 
             return $this->redirectToRoute('detail', ['id' => $wish->getId()]);
+
+        }elseif($form->isEmpty()){
+            $this->addFlash('error', 'Ya un truc qui ne va pas, le souhait ne peut pas être sauvegarder!');
         }
         return $this->render('wishes/ajout.html.twig', [
             "wish_form" => $form->createView()
-            ]);
+        ]);
     }
 
 }
