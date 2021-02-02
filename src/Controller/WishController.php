@@ -15,7 +15,8 @@ class WishController extends AbstractController{
      */
     public function liste(WishesRepository $wishesRepository) : Response
     {
-        $wish = $wishesRepository->findBy(["estVisible" => true], ["dateCrea" => "DESC"], 100, 0);
+        $wish = $wishesRepository->findBy(["estVisible" => true],
+                                            ["dateCrea" => "DESC"], 100, 0);
 
         return $this->render('wishes/liste.html.twig',[
                                 'wish' => $wish
@@ -28,6 +29,7 @@ class WishController extends AbstractController{
      */
     public function detail(int $id, WishesRepository $wishesRepository) : Response{
         $idWish = $wishesRepository->find($id);
+
 
         return $this->render('wishes/detail.html.twig', [
                                 'idWish' => $idWish,
@@ -42,10 +44,10 @@ class WishController extends AbstractController{
         $wish = new Wishes();
 
         $wish->getId();
-        $wish->setTitre('Tout terminer');
-        $wish->setDescription('Terminer absolument tout les petits travaux que jai commencé');
-        $wish->setAuteur('moi');
-        $wish->setEstVisible(true);
+        $wish->setTitre();
+        $wish->setDescription();
+        $wish->setAuteur();
+        $wish->setEstVisible();
         $wish->setDateCrea(new \DateTime());
 
         $entityManager->persist($wish);

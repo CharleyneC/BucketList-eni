@@ -3,6 +3,7 @@
 {% block body %}
     <h1>Details du souhait</h1>
     <h2>{{ idWish.titre }}</h2>
+    <p>{{ idWish.categories.name }}</p>
     <h2>{{ idWish.description }}</h2>
     <p>ecrit par {{ idWish.auteur }} le {{ idWish.dateCrea | date("d/m/Y")}}</p>
 {% endblock %}

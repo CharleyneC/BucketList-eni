@@ -64,6 +64,12 @@ class Wishes
      */
     private $dateCrea;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=categories::class, inversedBy="wishes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categories;
+
 
 
     public function getId(): ?int
@@ -130,4 +136,17 @@ class Wishes
 
         return $this;
     }
+
+    public function getCategories(): ?categories
+    {
+        return $this->categories;
+    }
+
+    public function setCategories(?categories $categories): self
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
 }

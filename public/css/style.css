@@ -42,6 +42,22 @@ input#wish_estVisible{
     margin-bottom: 5%;
 }
 
+select#wish_categories{
+    margin: 15px 0;
+    list-style-type: none;
+}
+select#wish_categories{
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0px;
+}
+
+select#wish_categories:hover{
+    color: #343A40;
+    border-bottom: 1px solid #343A40;
+}
+
 a, p, h1, h2{
     text-align: left;
 }
@@ -85,9 +101,14 @@ div.choix, a{
     display: block;
     margin-bottom: 5%;
 }
+
+div.user, a{
+    margin: 5% 0;
+}
+
 div.autre{
     display: inline;
-    margin: 5%;
+    margin: 5% 0;
 }
 
 div.flash-succes{
@@ -129,6 +150,11 @@ button:hover{
     to {
         background-position:20vw;
     }
+}
+
+input.pseudo, input.email, input.mdp{
+    display: block;
+    margin: 5% 0;
 }
 
 

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="inscription">
+        <label>Quel est ton pseudo?</label>
+            <input type="text" class="pseudo" placeholder="Pseudo" />
+
+        <label>Quel est ton email?</label>
+            <input type="email" class="email" placeholder="Email" />
+
+        <label>Quel Mot de passe veux-tu utiliser?</label>
+            <input type="text" class="mdp" placeholder="Mot de passe" />
+
+        <label>Retape ton mot de passe, juste pour voir...</label>
+            <input type="text" class="mdp" placeholder="Mot de passe" />
+    </div>
+
+    <button type="submit" class="seCo">Inscris-moi!</button>
+
+{% endblock %}

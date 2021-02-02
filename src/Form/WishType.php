@@ -2,12 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Categories;
 use App\Entity\Wishes;
-use Doctrine\DBAL\Types\BooleanType;
-use Symfony\Component\Config\Definition\BooleanNode;
-use Symfony\Component\DomCrawler\Field\TextareaFormField;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -32,7 +30,14 @@ class WishType extends AbstractType
             ->add('estVisible', CheckboxType::class, [
                 "label" => 'Je le rend visible?'
             ])
+            ->add('categories', EntityType::class, [
+                "label" => 'Ou dois-je le ranger? ',
+                "class" => Categories::class,
+                "choice_label" =>'name'
+                 ])
+
             ->add('Ajouter', SubmitType::class, [
+
                 "label" => 'Go! Jy penserais'
             ])
         ;

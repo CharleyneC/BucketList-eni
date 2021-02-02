@@ -29,4 +29,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
             return $this->render('main/legal-stuff.html.twig');
         }
 
+        /**
+         * @Route("/main/inscription", name="inscription")
+         */
+        public function inscription(){
+            return $this->render('main/inscription.html.twig');
+        }
+
+        /**
+         * @Route("/main/connexion", name="connexion")
+         */
+        public function connexion(){
+            return $this->render('main/connexion.html.twig');
+        }
+
     }

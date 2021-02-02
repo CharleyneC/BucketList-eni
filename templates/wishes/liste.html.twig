@@ -4,7 +4,7 @@
 
     {% for souhait in wish %}
         <article>
-            <a href="{{ path ('detail', {id:souhait.id}) }}">{{souhait.titre}}</a>
+            <a href="{{ path ('detail', {id:souhait.id}) }}">{{souhait.titre}} | {{ souhait.categories.name }}</a>
         </article>
         {% else %}
         <p>Il n'y a pas de souhait!!</p>

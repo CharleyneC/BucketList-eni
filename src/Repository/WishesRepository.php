@@ -19,6 +19,20 @@ class WishesRepository extends ServiceEntityRepository
         parent::__construct($registry, Wishes::class);
     }
 
+    public function findCategorizedWishes(): array{
+            $qb = $this->createQueryBuilder('w');
+            $qb->addOrderBy('w.dateCrea', 'DESC');
+            $qb->andWhere('w.estVisible = 1')
+                ->join('w.categories', 'c')
+                ->addSelect('c');
+
+            $query = $qb->getQuery();
+            $query->setMaxResults(30);
+            $wishes = $query->getResult();
+
+        return $wishes;
+    }
+
     // /**
     //  * @return Wishes[] Returns an array of Wishes objects
     //  */
