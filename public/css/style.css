@@ -152,9 +152,20 @@ button:hover{
     }
 }
 
-input.pseudo, input.email, input.mdp{
+input#inputPseudo.form-control, input#inputPassword.form-control{
     display: block;
     margin: 5% 0;
+}
+
+input#registration_form_pseudo, input#registration_form_email,
+input#registration_form_plainPassword
+{
+    display: block;
+    margin: 5% 0;
+}
+input#registration_form_agreeTerms{
+    display: inline;
+    margin: 5%;
 }
 
 
