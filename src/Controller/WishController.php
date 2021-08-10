@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use App\Entity\User;
 use App\Entity\Wishes;
 use App\Form\WishType;
 use App\Repository\WishesRepository;
@@ -11,12 +12,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class WishController extends AbstractController{
     /**
-     * @Route("/wishes/liste", name = "liste")
+     * @Route("/wishes/liste/{auteur}", name = "liste")
      */
-    public function liste(WishesRepository $wishesRepository) : Response
+    public function liste($auteur, WishesRepository $wishesRepository) : Response
     {
-        $wish = $wishesRepository->findBy(["estVisible" => true],
-                                            ["dateCrea" => "DESC"], 100, 0);
+        $wish = $wishesRepository->findBy(['estVisible' => true , 'auteur' => $auteur]);
 
         return $this->render('wishes/liste.html.twig',[
                                 'wish' => $wish
@@ -29,7 +29,6 @@ class WishController extends AbstractController{
      */
     public function detail(int $id, WishesRepository $wishesRepository) : Response{
         $idWish = $wishesRepository->find($id);
-
 
         return $this->render('wishes/detail.html.twig', [
                                 'idWish' => $idWish,
@@ -46,7 +45,9 @@ class WishController extends AbstractController{
         $wish->getId();
         $wish->setTitre();
         $wish->setDescription();
+
         $wish->setAuteur();
+
         $wish->setEstVisible();
         $wish->setDateCrea(new \DateTime());
 

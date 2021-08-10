@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <h1>Créer un nouveau souhait</h1>
+    <h1>Bonjour {{ app.user.pseudo }}, tu veux créer un nouveau souhait?</h1>
         <div>
             {{ form_start(wish_form,{'novalidate' : 'novalidate'}) }}
 
@@ -15,7 +15,7 @@
             {{ form_errors(wish_form.description) }}
 
             {{ form_label(wish_form.auteur) }}
-            {{ form_widget(wish_form.auteur) }}
+            {{ form_widget(wish_form.auteur, {value : app.user.pseudo}) }}
             {{ form_errors(wish_form.auteur) }}
 
             {{ form_end(wish_form) }}

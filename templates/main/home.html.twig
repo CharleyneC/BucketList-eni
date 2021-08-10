@@ -4,15 +4,30 @@
 
 {% block body %}
 
+            <div class="header-container">
+                {% if app.user %}
+                    <h3>Bonjour {{ app.user.pseudo }} !</h3>
+                {% endif %}
+
+                <h1>Bucket-List</h1>
+                <a class="logoBucket" href="{{ path('home') }}"><img class="logoBucket" src="{{ asset('image/logo.svg') }}"></a>
+            </div>
+
     <div class="choix">
-        <a class="rainbow rainbow-1" href="{{ path ('liste')}}">Liste de souhait</a>
-        <a class="rainbow rainbow-1" href="{{ path ('ajouter') }}">Ajouter un souhait</a>
+        <a class="rainbow rainbow-1" href=" {{ path ('liste', {auteur:app.user.pseudo}) }} ">Liste de souhait</a>
+        {% if app.user %}
+            <a class="rainbow rainbow-1" href="{{ path ('ajouter') }}">Ajouter un souhait</a>
+        {% endif %}
     </div>
 
-    <div class="user">
-        <a class="rainbow rainbow-1" href="{{ path ('app_register')}}">Inscription</a>
-        <a class="rainbow rainbow-1" href="{{ path ('app_login') }}">Connexion</a>
-    </div>
+{#    <div class="user">#}
+{#        {% if app.user %}#}
+{#            <a class="rainbow rainbow-1" href="{{ path ('app_logout') }}">Deconnection</a>#}
+{#            {% else %}#}
+{#                <a class="rainbow rainbow-1" href="{{ path ('app_register')}}">Inscription</a>#}
+{#                <a class="rainbow rainbow-1" href="{{ path ('app_login') }}">Connection</a>#}
+{#        {% endif %}#}
+{#    </div>#}
 
     <div class="autre">
         <a class="rainbow rainbow-1" href="{{ path('aboutUs') }}">About Us</a>

@@ -33,6 +33,7 @@ class WishesRepository extends ServiceEntityRepository
         return $wishes;
     }
 
+
     // /**
     //  * @return Wishes[] Returns an array of Wishes objects
     //  */

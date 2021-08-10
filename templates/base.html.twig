@@ -16,15 +16,37 @@
 <body>
 <header>
     {% block header %}
-        <div class="header-container">
-            <h1>Bucket-List</h1>
-            <a href="{{ path('home') }}"><img src="{{ asset('image/logo.svg') }}"></a>
-        </div>
+
+
+        {% if app.user %}
+            <a class="logoUser" href="{{ path('home') }}">
+                <img class="logoUser" src="{{ asset('image/logouser.png') }}">
+                <p> Home </p>
+
+            <a class="logoUserDeco" href="{{ path ('app_logout') }}">
+                <img class="logoUserDeco" src="{{ asset('image/logouserdeco.png') }}">
+                    <P>Déconnection</P>
+        {% else %}
+            <a class="logoUser" href="{{ path('app_login') }}">
+                <img class="logoUser" src="{{ asset('image/logouser.png') }}">
+                <p> Connection </p>
+
+            <a class="logoUserDeco" href="{{ path ('app_register')}}">
+                <img class="logoUserDeco" src="{{ asset('image/logoadduser.png') }}">
+                <P>Créer un compte</P>
+        {% endif %}
+        </a>
+
+{#        <a class="logoUserDeco" href="{{ path ('app_logout') }}">#}
+{#            <img class="logoUserDeco" src="{{ asset('image/logouserdeco.png') }}">#}
+{#            {% if app.user %}#}
+{#                <h3>Déconnection</h3>#}
+{#            {% endif %}#}
+{#        </a>#}
 
     {% endblock %}
 </header>
 <main>
-    {# read and display all flash messages #}
     {% for label, messages in app.flashes %}
         {% for message in messages %}
             <div class="flash-{{ label }}">
